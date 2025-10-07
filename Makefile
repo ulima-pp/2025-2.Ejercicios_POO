@@ -1,6 +1,8 @@
 build: ./bin/lib/ejercicio1.lib
+	g++ -c ./src/ejercicio_2/arma.cpp -o ./bin/arma.o
+	g++ -c ./src/ejercicio_2/personaje.cpp -o ./bin/personaje.o
 	g++ -c ./src/main.cpp -o ./bin/main.o
-	g++ ./bin/main.o \
+	g++ ./bin/arma.o ./bin/personaje.o ./bin/main.o \
 		-L./bin/lib \
 		-lejercicio1 \
 		-o ./bin/main
