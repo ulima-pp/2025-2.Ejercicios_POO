@@ -1,8 +1,14 @@
-build:
+build: ./bin/lib/ejercicio1.lib
+	g++ -c ./src/main.cpp -o ./bin/main.o
+	g++ ./bin/main.o \
+		-L./bin/lib \
+		-lejercicio1 \
+		-o ./bin/main
+
+build_ej1_static_lib:
 	g++ -c ./src/ejercicio_1/libro.cpp -o ./bin/libro.o
 	g++ -c ./src/ejercicio_1/usuario.cpp -o ./bin/usuario.o
-	g++ -c ./src/main.cpp -o ./bin/main.o
-	g++ ./bin/libro.o ./bin/usuario.o ./bin/main.o -o ./bin/main
+	ar rcs ./bin/lib/ejercicio1.lib ./bin/libro.o ./bin/usuario.o
 
 run:
 	./bin/main.exe
