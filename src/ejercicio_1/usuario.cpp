@@ -18,5 +18,11 @@ void ej1::Usuario::DevolverLibro()
 void ej1::Usuario::MostrarInfo()
 {
     std::cout << "Nombre Usuario: " << m_Nombre << "\n";
-    LibroPrestado->MostrarInfo();
+    if (LibroPrestado != nullptr)
+    {
+        LibroPrestado->MostrarInfo();
+    }else 
+    {
+        std::cout << "No tiene libro prestado" << "\n";
+    }
 }
