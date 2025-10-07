@@ -1,6 +1,8 @@
+#include <iostream>
 #include "ejercicio_1/libro.h"
 #include "ejercicio_1/usuario.h"
-int main()
+
+void EjecutarEjercicio1()
 {
     ej1::Libro l1(
         "The Design of Everyday Things",
@@ -28,9 +30,24 @@ int main()
     usu2.MostrarInfo();
 
     usu1.DevolverLibro();
-    
+
     usu1.MostrarInfo();
     usu2.MostrarInfo();
+}
+
+int main(int argc, char** argv)
+{
+    if (argc != 2)
+    {
+        std::cerr << "No ha enviado parametros o hay mas de lo que se pide." << "\n";
+        return 1;
+    }
+
+    std::string parametro1 = argv[1];
+    if (parametro1 == "1")
+    {
+        EjecutarEjercicio1();
+    }
 
     return 0;
 }
