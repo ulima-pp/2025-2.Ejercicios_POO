@@ -8,11 +8,12 @@ namespace ej1
     class Usuario
     {
         private:
-            size_t idUsuario;
-            std::string nombre;
+            size_t m_IdUsuario;
+            std::string m_Nombre;
     
         public:
-            Libro* m_LibroPrestado;
+            Libro* LibroPrestado;
+            
             Usuario(std::string nombre, size_t id);
             void PrestarLibro(Libro& libro);
             void DevolverLibro();
