@@ -1,6 +1,8 @@
 #include <iostream>
 #include "ejercicio_1/libro.h"
 #include "ejercicio_1/usuario.h"
+#include "ejercicio_2/arma.h"
+#include "ejercicio_2/personaje.h"
 
 void EjecutarEjercicio1()
 {
@@ -35,6 +37,27 @@ void EjecutarEjercicio1()
     usu2.MostrarInfo();
 }
 
+void EjecutarEjercicio2()
+{
+    ej2::Arma espada("Espada", 10.f);
+    ej2::Arma arco("Arco", 7.f);
+
+    ej2::Personaje guerrero("Guerrero", 50.f);
+    ej2::Personaje arquero("Arquero", 40.f);
+
+    guerrero.TArma = &espada;
+    arquero.TArma = &arco;
+
+    guerrero.Atacar(arquero);
+    guerrero.MostrarEstado();
+
+    guerrero.Atacar(arquero);
+    guerrero.MostrarEstado();
+
+    guerrero.Atacar(arquero);
+    guerrero.MostrarEstado();
+}
+
 int main(int argc, char** argv)
 {
     if (argc != 2)
@@ -47,6 +70,12 @@ int main(int argc, char** argv)
     if (parametro1 == "1")
     {
         EjecutarEjercicio1();
+    }else if (parametro1 == "2")
+    {
+        EjecutarEjercicio2();
+    } else {
+        std::cerr << "Numero de ejercicio invalido." << "\n";
+        return 1;
     }
 
     return 0;

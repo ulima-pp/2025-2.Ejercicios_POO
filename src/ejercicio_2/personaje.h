@@ -14,7 +14,7 @@ namespace ej2
         public:
             Arma* TArma;
             Personaje(std::string nombre, float vidaInicial);
-            void Atacar(Personaje& personaje) const;
+            void Atacar(const Personaje& atacante);
             void MostrarEstado() const;
     };
 } // namespace ej2
